@@ -25,6 +25,7 @@
 	</nav>
 
 	<div class="corner">
+		<a href="https://github.com/"><i style="color: #000; width: 24px; display: inline-block;" class="material-icons md-icon"></i></a>
 		<!-- TODO put something else here? github link? -->
 	</div>
 </header>
