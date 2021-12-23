@@ -1,14 +1,17 @@
 {
-  "name": "~TODO~",
+  "name": "gitpod-sveltekit",
   "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "preview": "svelte-kit preview",
+    "build:pkg": "svelte-kit package",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check --plugin-search-dir=. .",
-    "format": "prettier --write --plugin-search-dir=. ."
+    "lint:fix": "prettier --write --plugin-search-dir=. ."
   },
   "devDependencies": {
     "@sveltejs/kit": "next",
@@ -21,10 +24,21 @@
     "tslib": "^2.0.0",
     "typescript": "^4.0.0"
   },
-  "type": "module",
   "dependencies": {
     "@fontsource/fira-mono": "^4.2.2",
     "@lukeed/uuid": "^2.0.0",
     "cookie": "^0.4.1"
+  },
+  "prettier": {
+    "useTabs": false,
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 120,
+    "svelteStrictMode": false,
+    "svelteAllowShorthand": true,
+    "svelteIndentScriptAndStyle": true,
+    "svelteSortOrder": "script-style-options-markup"
   }
 }
