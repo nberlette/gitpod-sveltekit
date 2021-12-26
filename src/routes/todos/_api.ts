@@ -1,5 +1,4 @@
-import type { Request } from '@sveltejs/kit';
-import type { Locals } from '$lib/types';
+import type { Request, Locals } from '$types';
 
 /*
 	This module is used by the /todos.json and /todos/[uid].json

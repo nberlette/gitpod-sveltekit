@@ -16,11 +16,8 @@ export function enhance(
 
 	async function handle_submit(e: Event) {
 		const token = (current_token = {});
-
 		e.preventDefault();
-
 		const body = new FormData(form);
-
 		if (pending) pending(body, form);
 
 		try {

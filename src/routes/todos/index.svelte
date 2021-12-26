@@ -25,13 +25,7 @@
 <script lang="ts">
 	import { scale } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
-
-	type Todo = {
-		uid: string;
-		created_at: Date;
-		text: string;
-		done: boolean;
-	};
+	import type { Todo } from '$types';
 
 	export let todos: Todo[];
 

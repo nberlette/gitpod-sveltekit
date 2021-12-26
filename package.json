@@ -4,9 +4,9 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "svelte-kit dev",
+    "dev": "svelte-kit dev --port 3000",
     "build": "svelte-kit build",
-    "preview": "svelte-kit preview",
+    "preview": "svelte-kit preview --port 5000",
     "build:pkg": "svelte-kit package",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
@@ -16,13 +16,17 @@
   "devDependencies": {
     "@sveltejs/kit": "next",
     "@types/cookie": "^0.4.0",
+    "@types/html-minifier": "^4.0.2",
+    "html-minifier": "^4.0.0",
     "prettier": "~2.2.1",
     "prettier-plugin-svelte": "^2.2.0",
     "svelte": "^3.34.0",
     "svelte-check": "^2.0.0",
     "svelte-preprocess": "^4.0.0",
     "tslib": "^2.0.0",
-    "typescript": "^4.0.0"
+    "typescript": "^4.0.0",
+    "vite-plugin-windicss": "^1.6.1",
+    "windicss": "^3.4.0"
   },
   "dependencies": {
     "@fontsource/fira-mono": "^4.2.2",
@@ -36,9 +40,9 @@
     "singleQuote": true,
     "trailingComma": "es5",
     "printWidth": 120,
-    "svelteStrictMode": false,
-    "svelteAllowShorthand": true,
+    "svelteBracketNewLine": true,
+    "svelteStrictMode": true,
     "svelteIndentScriptAndStyle": true,
-    "svelteSortOrder": "script-style-options-markup"
+    "svelteSortOrder": "scripts-styles-options-markup"
   }
 }

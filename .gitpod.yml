@@ -1,29 +1,28 @@
 # see https://www.gitpod.io/docs/config-docker
-image: nberlette/gitpod-enhanced:latest
+image: nberlette/gitpod-enhanced
+
+tasks:
+  - command: pnpm i && pnpm run dev
+    openMode: split-left
+
 ports:
   - name: "Development"
-    port: "3000-3100"
-    onOpen: notify
+    port: 3000
+    onOpen: open-preview
   - name: "Production"
     port: 5000
-    onOpen: notify
-  - port: 24678
-    onOpen: ignore
-# see https://www.gitpod.io/docs/config-start-tasks
-tasks:
-  # runs only during prebuild, not on each start!
-  - init: pnpm install
-  - command: |
-      export HMR_HOST=$(gp url 24678)
-      pnpm run dev
+    onOpen: open-browser
+
 github:
   prebuilds:
     branches: false
     addBadge: true
     addLabel: true
+
 gitConfig:
   bash.showUntracked: "false"
-  bash.hidePwdIfIgnored: "false"
+  bash.hideIfPwdIgnored: "false"
+
 vscode:
   extensions:
     - svelte.svelte-vscode
