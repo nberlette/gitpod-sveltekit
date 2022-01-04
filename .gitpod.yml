@@ -1,8 +1,9 @@
-# see https://www.gitpod.io/docs/config-docker
 image: nberlette/gitpod-enhanced
 
 tasks:
-  - command: pnpm i && pnpm run dev
+  - name: "pnpm"
+    init: pnpm install
+    command: pnpm dev
     openMode: split-left
 
 ports:
@@ -15,7 +16,7 @@ ports:
 
 github:
   prebuilds:
-    branches: false
+    branches: true
     addBadge: true
     addLabel: true
 
