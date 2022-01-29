@@ -1,3 +1,11 @@
 {
-  "git.enableCommitSigning": true
+  "git.enableCommitSigning": true,
+  "editor.linkedEditing": true,
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.formatOnType": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+  }
 }

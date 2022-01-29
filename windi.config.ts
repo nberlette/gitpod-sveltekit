@@ -1,14 +1,13 @@
-import type { Config } from 'windicss/types/interfaces'
-import { defineConfig, transform, convert } from 'windicss/helpers'
+import { defineConfig } from 'windicss/helpers'
 
 import typography from 'windicss/plugin/typography'
+import filters from 'windicss/plugin/filters'
+import forms from 'windicss/plugin/forms'
 
-export const windiConfig: Config = defineConfig({
-  darkMode: 'media',
-  plugins: [typography()],
+export default defineConfig({
+  darkMode: 'class',
+  plugins: [typography, filters, forms],
   shortcuts: {
 
   },
-})
-
-export default windiConfig
+});

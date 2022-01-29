@@ -13,7 +13,7 @@
 	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
 </footer>
 
-<style windi:preflights:global windi:safelist:global>
+<style windi:preflights:global windi:safelist:global windi:global global>
 	@import "../app.css";
 	main {
 		flex: 1;
