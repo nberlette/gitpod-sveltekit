@@ -5,3 +5,13 @@ node_modules
 *.log
 .svelte-kit
 .svelte-kit/**
+*.env
+.env
+.env.*
+.env.*.local
+!.env.sample
+!.env.example
+!.env.demo
+!.env.sample.local
+!.env.example.local
+!.env.demo.local
