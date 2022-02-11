@@ -19,6 +19,7 @@ github:
     branches: true
     addBadge: true
     addLabel: true
+    addCheck: true
 
 gitConfig:
   bash.showUntracked: "false"
@@ -30,4 +31,5 @@ vscode:
     - esbenp.prettier-vscode
     - voorjaar.windicss-intellisense
     - christian-kohler.npm-intellisense
+    - christian-kohler.path-intellisense
     - eamodio.gitlens

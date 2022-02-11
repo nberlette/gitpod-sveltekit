@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	import { enhance } from '$lib/form';
+	import enhance from '$lib/actions/form';
 	import type { Load } from '@sveltejs/kit';
 
 	// see https://kit.svelte.dev/docs#loading
@@ -25,17 +25,13 @@
 <script lang="ts">
 	import { scale } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
-	import type { Todo } from '$types';
+	import type { Todo } from '$lib/types';
 
 	export let todos: Todo[];
 
 	async function patch(res: Response) {
 		const todo = await res.json();
-
-		todos = todos.map((t) => {
-			if (t.uid === todo.uid) return todo;
-			return t;
-		});
+		todos = todos.map(t => (t.uid === todo.uid) ? todo : t);
 	}
 </script>
 
@@ -54,7 +50,6 @@
 			result: async (res, form) => {
 				const created = await res.json();
 				todos = [...todos, created];
-
 				form.reset();
 			}
 		}}
@@ -67,7 +62,7 @@
 			class="todo"
 			class:done={todo.done}
 			transition:scale|local={{ start: 0.7 }}
-			animate:flip={{ duration: 200 }}
+			animate:flip={{ duration: 500 }}
 		>
 			<form
 				action="/todos/{todo.uid}.json?_method=patch"
@@ -100,7 +95,7 @@
 				method="post"
 				use:enhance={{
 					result: () => {
-						todos = todos.filter((t) => t.uid !== todo.uid);
+						todos = todos.filter(t => t.uid !== todo.uid);
 					}
 				}}
 			>

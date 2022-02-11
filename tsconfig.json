@@ -19,8 +19,12 @@
 			"$lib/*": ["./lib/*"],
 			"$hooks": ["./hooks"],
 			"$hooks/*": ["./hooks/*"],
+			"$lib/hooks": ["./hooks"],
+			"$lib/hooks/*": ["./hooks/*"],
 			"$types": ["./global.d.ts"],
-			"$types/*": ["./*.d.ts", "./lib/*.d.ts"]
+			"$types/*": ["./*.d.ts", "./lib/*.d.ts", "./lib/types/*.d.ts"],
+			"$lib/types": ["./global.d.ts", "./lib/types/index.d.ts"],
+			"$lib/types/*": ["./*.d.ts", "./lib/*.d.ts", "./lib/types/*.d.ts"]
 		}
 	},
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
