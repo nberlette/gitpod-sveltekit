@@ -32,8 +32,6 @@
 </svelte:head>
 
 <div class="todos">
-	<h1>Todos</h1>
-
 	<form
 		class="new"
 		action="/todos.json"
@@ -46,7 +44,7 @@
 			}
 		}}
 	>
-		<input name="text" aria-label="Add todo" placeholder="+ tap to add a todo" />
+		<input name="text" aria-label="Add todo" placeholder="+ add a todo" />
 	</form>
 
 	{#each todos as todo (todo.uid)}
