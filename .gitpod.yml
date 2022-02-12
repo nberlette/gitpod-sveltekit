@@ -2,24 +2,23 @@ image: nberlette/gitpod-enhanced
 
 tasks:
   - name: "pnpm"
-    init: pnpm install
+    before: pnpm install
     command: pnpm dev
-    openMode: split-left
 
 ports:
-  - name: "Development"
+  - name: "SvelteKit"
     port: 3000
     onOpen: open-preview
-  - name: "Production"
-    port: 5000
-    onOpen: open-browser
 
 github:
   prebuilds:
+    master: true
     branches: true
     addBadge: true
     addLabel: true
     addCheck: true
+    pullRequests: true
+    pullRequestsFromForks: true
 
 gitConfig:
   bash.showUntracked: "false"

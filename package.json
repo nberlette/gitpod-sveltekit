@@ -3,15 +3,26 @@
   "version": "0.0.1",
   "license": "MIT",
   "type": "module",
+  "author": {
+    "name": "Nicholas Berlette",
+    "email": "nick@berlette.com",
+    "url": "https://github.com/nberlette"
+  },
+  "repository": "nberlette/gitpod-sveltekit",
+  "readme": "https://github.com/nberlette/gitpod-sveltekit#readme",
+  "bugs": "https://github.com/nberlette/gitpod-sveltekit/issues",
+  "homepage": "https://n.berlette.com/gitpod-sveltekit",
   "scripts": {
-    "dev": "svelte-kit dev --port 3000",
+    "dev": "svelte-kit dev --port ${PORT:-3000}",
+    "start": "run-s dev",
     "build": "svelte-kit build",
-    "preview": "svelte-kit preview --port 5000",
-    "build:pkg": "svelte-kit package",
+    "preview": "svelte-kit preview --port ${PORT:-3000}",
+    "package": "svelte-kit package",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check --plugin-search-dir=. .",
-    "lint:fix": "prettier --write --plugin-search-dir=. ."
+    "lint:fix": "prettier --write --plugin-search-dir=. .",
+    "test": "run-s check lint"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
@@ -19,6 +30,7 @@
     "@types/cookie": "^0.4.1",
     "@types/html-minifier": "^4.0.2",
     "html-minifier": "^4.0.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.5.1",
     "prettier-plugin-svelte": "^2.6.0",
     "svelte": "^3.46.3",
@@ -36,19 +48,36 @@
     "cookie": "^0.4.1"
   },
   "prettier": {
-    "useTabs": false,
+    "useTabs": true,
     "tabWidth": 2,
     "semi": true,
     "singleQuote": true,
     "trailingComma": "es5",
     "printWidth": 120,
-    "svelteBracketNewLine": true,
-    "svelteStrictMode": true,
-    "svelteIndentScriptAndStyle": true,
-    "svelteSortOrder": "scripts-styles-options-markup",
-    "parser": "svelte",
-    "plugins": [
-      "prettier-plugin-svelte"
+    "overrides": [
+      {
+        "files": "*.svelte",
+        "options": {
+          "svelteBracketNewLine": true,
+          "svelteStrictMode": false,
+          "svelteAllowShorthand": true,
+          "svelteIndentScriptAndStyle": true,
+          "svelteSortOrder": "scripts-styles-options-markup",
+          "parser": "svelte",
+          "plugins": [
+            "prettier-plugin-svelte"
+          ]
+        }
+      },
+      {
+        "files": "*.json",
+        "options": {
+          "singleQuote": false,
+          "semi": false,
+          "parser": "json",
+          "trailingComma": "none"
+        }
+      }
     ]
   }
 }
