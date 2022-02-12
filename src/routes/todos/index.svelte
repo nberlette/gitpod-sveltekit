@@ -3,23 +3,15 @@
 	import type { Load } from '@sveltejs/kit';
 
 	// see https://kit.svelte.dev/docs#loading
-	export const load: Load = async ({ fetch }) => {
-		const res = await fetch('/todos.json');
-
-		if (res.ok) {
-			const todos = await res.json();
-
-			return {
-				props: { todos }
-			};
-		}
-
-		const { message } = await res.json();
-
-		return {
-			error: new Error(message)
-		};
-	};
+	export const load: Load = async ({ fetch }) => 
+		await fetch('/todos.json')
+			.then(async (res) => 
+				res.ok ? await res.json() : (await res.json()).message
+			)
+			.then(todos => !('message' in todos)
+				? ({ props: { todos } }) 
+				: ({ error: new Error(todos.message) })
+			).catch(console.error)
 </script>
 
 <script lang="ts">
